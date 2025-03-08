@@ -52,15 +52,38 @@ public class Words : MonoBehaviour
     private void OnCorrectWord()
     {
 
-        StartCoroutine(HealingEffect());
+        StartCoroutine(ChangeBodyColour(Color.green));
     }
 
     private void OnWrongWord()
     {
 
-        StartCoroutine(ChangeToRed());
+        StartCoroutine(ChangeBodyColour(Color.grey));
     }
-    private IEnumerator ChangeToRed()
+    
+    private IEnumerator ChangeBodyColour(Color targetColor)
+    {
+        float duration = 5f;
+        float timer = 0f;
+
+        Material sharedMat = renderer.sharedMaterial;
+       
+        Color originalColor = sharedMat.GetColor("_primary_Colour");
+
+        while (timer < duration)
+        {
+            sharedMat.SetColor("_primary_Colour", targetColor);
+            yield return new WaitForSeconds(0.5f); 
+            timer += 0.5f;
+            sharedMat.SetColor("_primary_Colour", originalColor);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        sharedMat.SetColor("_primary_Colour", originalColor);
+    }
+
+}
+/*private IEnumerator ChangeToRed()
     {
         // Changes the face colour to red
         Color colour      = faceColour.color;
@@ -85,27 +108,4 @@ public class Words : MonoBehaviour
         }
         Debug.Log("Wrong One! Increasing red tint.");
         
-    }
-    private IEnumerator HealingEffect()
-    {
-        float duration = 5f;
-        float timer = 0f;
-
-        Material sharedMat = renderer.sharedMaterial;
-
-       
-        Color originalColor = sharedMat.GetColor("_primary_Colour");
-
-        while (timer < duration)
-        {
-            sharedMat.SetColor("_primary_Colour", Color.green);
-            yield return new WaitForSeconds(0.5f); 
-            timer += 0.5f;
-            sharedMat.SetColor("_primary_Colour", originalColor);
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        sharedMat.SetColor("_primary_Colour", originalColor);
-    }
-
-}
+    }*/
