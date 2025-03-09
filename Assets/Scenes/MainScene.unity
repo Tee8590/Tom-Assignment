@@ -204,19 +204,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 149883982}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079865780}
-        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
-        m_MethodName: CorrectButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &149883982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,19 +325,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 205062003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &205062003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,7 +1016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788734192}
-  - component: {fileID: 788734191}
+  - component: {fileID: 788734193}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1048,25 +1024,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &788734191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788734190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b051410f2bfcec8499f17f907364c678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationImage: {fileID: 5499622844926219147}
-  wordButtons:
-  - {fileID: 7816449281535082804}
-  - {fileID: 1275344522}
-  - {fileID: 251713201}
-  - {fileID: 387640525}
-  wordPanel: {fileID: 8948952968508021917}
 --- !u!4 &788734192
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,6 +1039,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788734193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788734190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b051410f2bfcec8499f17f907364c678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvents: {fileID: 1079865780}
+  wordButtons:
+  - {fileID: 7816449281535082804}
+  - {fileID: 1275344522}
+  - {fileID: 251713201}
+  - {fileID: 387640525}
 --- !u!1 &1079865779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,8 +1246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 11400000, guid: 6452ee176d1655547b287f52e3028d92, type: 2}
-  levelView: {fileID: 788734191}
+  - {fileID: 11400000, guid: 7c0f8cfe2dc882248b6b9147c4d6d461, type: 2}
+  - {fileID: 11400000, guid: 5834f09047c0e4743bb69798f986ccf5, type: 2}
   gameEvents: {fileID: 1079865780}
 --- !u!1 &1275344520
 GameObject:
@@ -5123,19 +5098,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8435220458688136995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1079865780}
-        m_TargetAssemblyTypeName: Subject, Assembly-CSharp
-        m_MethodName: WrongButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2880637858923272061
 GameObject:
   m_ObjectHideFlags: 0

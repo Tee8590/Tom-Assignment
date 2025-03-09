@@ -8,6 +8,7 @@ public class GameEvents : MonoBehaviour, IWordNotifier
     public event Action OnStartGame;
     public event Action OnWrongWordSelected;
     public event Action OnCorrectWordSelected;
+    public event Action<string[], int> OnDisplayWords;
     public event Action<string, float> OnCharacterAnimations;
 
 
@@ -22,8 +23,13 @@ public class GameEvents : MonoBehaviour, IWordNotifier
    public void CorrectButton()
    {
        OnCorrectWordSelected?.Invoke();
+        
    }
-   public void CharacterAnimations(string animationName, float time)
+    public void DisplayWords(string[] words, int correctIndex)
+    {
+        OnDisplayWords?.Invoke(words, correctIndex);
+    }
+    public void CharacterAnimations(string animationName, float time)
    {
         if (OnCharacterAnimations != null)
         {
