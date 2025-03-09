@@ -27,7 +27,7 @@ public class FactoryManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        wordNotifier.OnWrongWordSelected -= OnWrongAnswer;
+        wordNotifier.OnCorrectWordSelected -= OnCorrectAnswer;
         wordNotifier.OnWrongWordSelected -= OnWrongAnswer;
     }
     private void Start()
@@ -58,7 +58,7 @@ public class FactoryManager : MonoBehaviour
 
     public void OnWrongAnswer()
     {
-        gameEvents.WrongButton();
-        //gameEvents.PlayWrongAnimation();
+       
+        
     }
 }

@@ -19,7 +19,8 @@ public class GameEvents : MonoBehaviour, IWordNotifier
     public void WrongButton()
    {
        OnWrongWordSelected?.Invoke();
-   }
+       
+    }
    public void CorrectButton()
    {
        OnCorrectWordSelected?.Invoke();
