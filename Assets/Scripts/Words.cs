@@ -1,5 +1,4 @@
 using System;
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
@@ -13,8 +12,8 @@ public class Words : MonoBehaviour
     [SerializeField]
     private GameEvents gameEvents;
 
-    //[SerializeField]
-    //private Button m_AddButton;
+    [SerializeField]
+    private GameObject buttons;
 
     //[SerializeField]
     //private int noOfButtons = 2;
@@ -22,12 +21,12 @@ public class Words : MonoBehaviour
     private SpriteRenderer faceColour;
 
     [SerializeField]
-    private Renderer renderer;
+    private Renderer render ;
 
     private void Awake()
     {
         wordNotifier = gameEvents;
-        //renderer = GetComponent<Renderer>();
+        
         if(wordNotifier ==null)
         {
             Debug.LogError("couldn't find IWordNotifier");
@@ -52,21 +51,26 @@ public class Words : MonoBehaviour
     private void OnCorrectWord()
     {
 
-        StartCoroutine(ChangeBodyColour(Color.green));
+        StartCoroutine(ChangeBodyColour(new Color(1, 0.2f, 0)));
+        gameEvents.CharacterAnimations("blocking hit",2f);
     }
 
     private void OnWrongWord()
     {
 
-        StartCoroutine(ChangeBodyColour(Color.grey));
+        StartCoroutine(ChangeBodyColour(Color.red));
+        gameEvents.CharacterAnimations("blocking hit", 2f);
     }
     
     private IEnumerator ChangeBodyColour(Color targetColor)
     {
-        float duration = 5f;
+
+        SetButtonsActive(false);
+
+        float duration = 2f;
         float timer = 0f;
 
-        Material sharedMat = renderer.sharedMaterial;
+        Material sharedMat = render.sharedMaterial;
        
         Color originalColor = sharedMat.GetColor("_primary_Colour");
 
@@ -78,34 +82,13 @@ public class Words : MonoBehaviour
             sharedMat.SetColor("_primary_Colour", originalColor);
             yield return new WaitForSeconds(0.1f);
         }
-
         sharedMat.SetColor("_primary_Colour", originalColor);
+
+        SetButtonsActive(true);
+    }
+    private void SetButtonsActive(bool isActive)
+    {
+        buttons.gameObject.SetActive(isActive);
     }
 
 }
-/*private IEnumerator ChangeToRed()
-    {
-        // Changes the face colour to red
-        Color colour      = faceColour.color;
-        Color startColour = faceColour.color;
-        float duriation   = 5f;
-        float timer = 0.1f;
-
-        if (faceColour != null)
-        {
-            while (timer < duriation)
-            {
-                timer += Time.deltaTime;
-                faceColour.color = Color.Lerp(startColour, Color.red, timer);
-                yield return new WaitForSeconds(1f);
-            }
-
-            colour = faceColour.color;
-        }
-        else
-        {
-            Debug.LogError("No face found");
-        }
-        Debug.Log("Wrong One! Increasing red tint.");
-        
-    }*/
